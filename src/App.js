@@ -36,6 +36,11 @@ function App() {
       task.id === id ? { ...task, reminder: !task.reminder } : task))
   }
 
+  // Add Task
+  const addTask = () => {
+    console.log('added')
+  }
+
   return (
     <div className="container">
       <Header title="Header Text" />
