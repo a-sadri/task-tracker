@@ -24,6 +24,7 @@ function App() {
       reminder: 'true',
     },
   ])
+  const [showAddTask, setShowAddTask] = useState(false)
 
   // Delete Task
   const deleteTask = (id) => {
@@ -45,8 +46,8 @@ function App() {
 
   return (
     <div className="container">
-      <Header title="Header Text" />
-      <AddTask onAdd={addTask} />
+      <Header title="Header Text" onAdd={() => setShowAddTask(!showAddTask)} showTask={showAddTask} />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? <Tasks
         tasks={tasks}
         onDelete={deleteTask}
